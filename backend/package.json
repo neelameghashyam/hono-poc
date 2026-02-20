@@ -1,0 +1,21 @@
+{
+  "name": "hono-poc-backend",
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/serve.js",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "dotenv": "^17.2.4",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@hono/node-server": "^1.14.0",
+    "eslint": "^8.56.0"
+  }
+}

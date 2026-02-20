@@ -6,6 +6,11 @@ const routes = [
     name: 'Hono',
     component: () => import('@/pages/HonoShowcaseView.vue'),
   },
+   {
+    path: '/simple',
+    name: 'Hono-simple',
+    component: () => import('@/pages/Hono-simple.vue'),
+  },
 ];
 
 const router = createRouter({

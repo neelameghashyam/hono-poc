@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router'
 import api from '@/services/api';
 
 // ── State ────────────────────────────────────────────────────────────────────
@@ -85,6 +86,12 @@ const features = [
 const activeFeatureConfig = computed(() =>
   features.find((f) => f.id === activeFeature.value)
 );
+
+const router = useRouter()
+
+function goToSimple() {
+  router.push('/simple')
+}
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 function formatJson(obj) {
@@ -325,11 +332,16 @@ onMounted(() => {
         <span class="topbar-divider">|</span>
         <span class="topbar-title">Feature Showcase</span>
       </div>
-      <div class="topbar-right">
-        <div class="live-dot"></div>
-        <span class="topbar-live">Live API</span>
-        <span class="topbar-url">localhost:3001</span>
-      </div>
+      
+    <div class="topbar-right">
+  <button class="simple-btn" @click="goToSimple">
+    Simple Version
+  </button>
+
+  <div class="live-dot"></div>
+  <span class="topbar-live">Live API</span>
+  <span class="topbar-url">localhost:3001</span>
+</div>
     </header>
 
     <div class="layout">
@@ -1292,6 +1304,25 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.simple-btn {
+  margin-right: 12px;
+  background: transparent;
+  border: 1px solid #f97316;
+  color: #f97316;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.simple-btn:hover {
+  background: #f97316;
+  color: #0b1220; /* dark navy background tone */
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+  transform: translateY(-1px);
 }
 
 .form-field {
